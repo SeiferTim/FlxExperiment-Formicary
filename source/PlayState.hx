@@ -12,12 +12,18 @@ import flixel.math.FlxMath;
  */
 class PlayState extends FlxState
 {
+	
+	private var _world:World;
+	
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
 	override public function create():Void
 	{
 		super.create();
+		
+		_world = new World();
+		add(_world);
 	}
 	
 	/**
