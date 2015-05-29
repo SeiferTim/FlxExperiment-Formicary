@@ -42,4 +42,10 @@ class PlayState extends FlxState
 	{
 		super.update(elapsed);
 	}
+	
+	override public function draw():Void 
+	{
+		super.draw();
+		
+	}
 }

@@ -18,12 +18,14 @@
     <class path="C:\HaxeToolkit\haxe\lib\flixel\git" />
     <class path="C:\HaxeToolkit\haxe\lib\openfl\3,0,6" />
     <class path="C:\HaxeToolkit\haxe\lib\lime\2,4,1" />
+    <class path="C:\Users\Tim\Dev\cloner\src" />
+    <class path="C:\HaxeToolkit\haxe\lib\flixel-addons\git" />
     <class path="source" />
     <class path="export\flash\haxe" />
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="flixel=3.3.8&#xA;openfl=3.0.6&#xA;lime=2.4.1&#xA;openfl-next&#xA;tools=2.4.1&#xA;no-compilation&#xA;openfl-flash&#xA;web" />
+    <option directives="flixel=3.3.8&#xA;openfl=3.0.6&#xA;lime=2.4.1&#xA;cloner=0.0.0&#xA;flixel-addons=1.1.0&#xA;openfl-next&#xA;tools=2.4.1&#xA;no-compilation&#xA;openfl-flash&#xA;web" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="ApplicationMain" />
