@@ -26,8 +26,9 @@ class World extends FlxGroup
 	
 	public static inline var PT_EMPTY:Int = 0;
 	public static inline var PT_SOLID:Int = 1;
-	public static inline var PT_GRASS:Int = 2;
-	public static inline var PT_STONE:Int = 3;
+	public static inline var PT_STONE:Int = 2;
+	public static inline var PT_FOOD:Int = 3;
+	public static inline var PT_GRASS:Int = 4;
 	
 	public var width(default, null):Float = 0;
 	public var height(default, null):Float = 0;
@@ -90,6 +91,23 @@ class World extends FlxGroup
 		add(sky);
 		add(ground);
 		add(antLayer);
+		
+		ants = new Array<Ant>();
+		ants.push(new Ant(0,0, this));
+	}
+	
+	public function countFoodAvailable():Int
+	{
+		var value:Int = 0;
+		for (x in 0...Std.int(width))
+		{
+			for (y in 0...Std.int(height))
+			{
+				if (data[x][y] == PT_FOOD)
+					value++;
+			}
+		}
+		return value;
 	}
 	
 	
@@ -99,9 +117,13 @@ class World extends FlxGroup
 		antLayer.pixels = new BitmapData(Std.int(width), Std.int(height), true, 0x0);
 		
 		// draw ants!!!!!!
-		
-		
-		
+		for (a in ants)
+		{
+			if (a != null)
+			{
+				antLayer.pixels.setPixel32(a.x, a.y, 0xff9e005d);
+			}
+		}
 		
 		antLayer.pixels.unlock();
 		antLayer.dirty = true;
@@ -292,6 +314,18 @@ class World extends FlxGroup
 		drawAnts();
 		super.draw();
 		
+	}
+	
+	override public function update(elapsed:Float):Void
+	{
+		super.update(elapsed);
+		for (a in ants)
+		{
+			if (a != null)
+			{
+				a.update(elapsed);
+			}
+		}
 	}
 	
 }
